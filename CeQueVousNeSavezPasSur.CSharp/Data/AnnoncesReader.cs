@@ -34,6 +34,7 @@ namespace CeQueVousNeSavezPasSur.CSharp.Data
             }
         };
 
+
         private int GetIdAgenceOrDefault(Annonce annonce)
         {
             const int defaultId = 999;
