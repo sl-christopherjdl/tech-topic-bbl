@@ -1,0 +1,4 @@
+﻿TargetVariable;Value
+Identifier;classified.Id
+Parkings_Nb;classified.NumberOfParkings
+RoomsNb;classified.Shop.NumberOfRooms

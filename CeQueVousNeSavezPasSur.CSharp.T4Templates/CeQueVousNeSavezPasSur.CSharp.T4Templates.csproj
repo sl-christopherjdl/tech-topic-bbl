@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BasicMapper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="BasicMapper.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="BasicPolirisMapper.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BasicPolirisMapper.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="BasicPolirisMapper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BasicPolirisMapper.cs</LastGenOutput>
+    </None>
+    <None Update="MapperConfiguration.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="BasicPolirisMapper.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BasicPolirisMapper.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Mapper.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,36 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#
+				string absolutePath = Host.ResolvePath("MapperConfiguration.csv");
+				var contents = File.ReadAllLines(absolutePath).Skip(1);
+#> 
+
+
+namespace CeQueVousNeSavezPasSur.CSharp.T4Templates
+{
+	public static class BasicMapper
+	{
+		public static PolirisClassified Map(Classified classified)
+		{
+			var poliris = new PolirisClassified();
+			<#
+				foreach (var content in contents)
+				{
+					var splitContent = content.Split(';');
+					var targetVariable = splitContent[0];
+					var val = splitContent[1];
+			#>
+poliris.<#=targetVariable#> = <#=val#>.ToString();
+			<#
+				}
+			#>
+			
+			return poliris;
+		}
+	}
+}
